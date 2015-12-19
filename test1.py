@@ -20,27 +20,17 @@ def move(x, y, step, angle):
     ny = y - step * math.sin(angle)
     return nx, ny
 
-a = float(input('please input a = '))
-b = float(input('please input b = '))
-c = float(input('please input c = '))
+def power(x, n=2):
+    return x ** n
 
-def quadratic(a, b, c):
-    if not isinstance(a, (int, float)):
-        raise TypeError('bad operand type.')
-    if not isinstance(b, (int, float)):
-        raise TypeError('bad operand type.')    
-    if not isinstance(c, (int, float)):
-        raise TypeError('bad operand type.')
+def add_end(L=None):
+    if L is None:
+        L = []
+    L.append('END')
+    return L
 
-    k=math.sqrt(float(b*b-4*a*c))
-    if a==0:
-        x=(-b)/c
-        return x
-    elif k>=0:
-        x1=(-b+k)/(2*a)
-        x2=(-b-k)/(2*a)
-        return x1,x2
-    else:
-        return '方程无实数解'
-
-print(quadratic(a,b,c))
+def calc(*numbers):
+    sum = 0
+    for n in numbers:
+        sum = sum + n
+    return sum
